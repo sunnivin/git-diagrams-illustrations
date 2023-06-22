@@ -1,6 +1,4 @@
-% graph LR
-% 	A --> B
-% 	B --> C
+
 \documentclass[preview]{standalone}
 
 \usepackage{subcaption}
@@ -14,8 +12,16 @@
     \begin{tikzpicture}
       % Commit DAG
       \gitDAG[grow left sep = 2em]{
-        A -- B -- C  
+        C -- B -- A  
       };
+      \gitbranch
+        {main}     % node name and text 
+        {above=of C} % node placement
+        {C}          % target
+      % HEAD reference
+      \gitHEAD
+        {above=of main} % node placement
+        {main}          % target
     \end{tikzpicture}
   \end{subfigure}
 \end{figure}

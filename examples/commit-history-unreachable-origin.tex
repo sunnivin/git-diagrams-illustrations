@@ -1,0 +1,44 @@
+% graph LR
+%    A-->B
+%    B-->C
+%    C-- experimental branch -->E
+%    E-->H
+%    C-- main branch -->F
+%    F-->G
+%    G-- merged with H -->I
+%    H-- merged with G -->I(I <- HEAD)
+\documentclass[preview]{standalone}
+\usepackage{subcaption}
+\usepackage{gitdags}
+\begin{document}
+\begin{figure}
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \begin{tikzpicture}
+      % Commit DAG
+      \gitDAG{
+         A -- B -- C -- D -- E ,
+      };
+      % Branch
+      \gitbranch
+        {main}     % node name and text 
+        {left=of A} % node placement
+        {A}          % target
+      % HEAD reference
+      \gitHEAD
+        {right=of E} % node placement
+        {E}          % target
+        \gittag
+        [v0p1]       % node name
+        {v0.1.0}       % node text
+        {above=of B} % node placement
+        {B}          % target
+        \gitremotebranch
+        [origmain]    % node name
+        {origin/main} % node text
+        {below=of E}    % node placement
+        {E}             % target
+    \end{tikzpicture}
+  \end{subfigure}
+\end{figure}
+\end{document}

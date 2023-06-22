@@ -1,0 +1,35 @@
+\documentclass[preview]{standalone}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+
+\begin{document}
+
+% \begin{figure}
+%   \begin{subfigure}[b]{\textwidth}
+%     \centering
+%     \begin{tikzpicture}
+%       % Commit DAG
+%       \gitDAG[grow left sep = 2em]{
+%         F -- E -- {D -- C,
+%                    D-- B -- G,
+%             }
+%         -- A
+%       };
+%       \gitbranch
+%         {main}       % node name and text
+%         {above=of F} % node placement
+%         {F}          % target
+%     \gitbranch
+%         {feature_a}       % node name and text
+%         {below=of B} % node placement
+%         {B}          % target
+%       % HEAD reference
+%       \gitHEAD
+%         {above=of main} % node placement
+%         {main}          % target
+%     \end{tikzpicture}
+%   \end{subfigure}
+% \end{figure}
+
+\end{document}
